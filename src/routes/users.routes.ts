@@ -30,7 +30,7 @@ usersRouter.post("/",async (request, response) => {
 
 
 usersRouter.patch("/avatar",ensureAuthenticated,upload.single('avatar'),async (request,response) => {
- try {
+
    const updateUserAvatar = new UpdateUserAvatarService();
 
 
@@ -44,9 +44,7 @@ usersRouter.patch("/avatar",ensureAuthenticated,upload.single('avatar'),async (r
    delete user.password;
    return response.json(user)
 
- }catch(err:any){
-   return response.status(400).json({error:err.message});
- }
+
 })
 
 export default usersRouter;
