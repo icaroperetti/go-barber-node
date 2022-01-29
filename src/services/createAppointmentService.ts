@@ -3,6 +3,7 @@ import { getCustomRepository } from 'typeorm';
 import Appointment from '../models/Appointments';
 import AppointmentsRepository from '../repositories/AppointmentsRepository';
 
+
 interface Request {
   provider_id: string;
   date: Date;
