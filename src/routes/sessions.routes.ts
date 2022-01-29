@@ -13,12 +13,12 @@ sessionsRouter.post("/",async (request, response) => {
 
     const authenticateUser = new AuthenticateUserService();
 
-    const {user} = await authenticateUser.execute({email,password});
+    const {user,token} = await authenticateUser.execute({email,password});
 
     // @ts-expect-error
     delete user.password
 
-    return response.json({user});
+    return response.json({user,token});
 
   } catch(err:any){
     return response.status(400).json({error:err.message});
